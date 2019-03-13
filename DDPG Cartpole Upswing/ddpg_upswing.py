@@ -1,5 +1,4 @@
 import sys
-sys.path.insert(0, '../')
 sys.dont_write_bytecode = True
 
 import os
@@ -10,11 +9,11 @@ import numpy as np
 import gym
 import tensorflow as tf
 
-from agents import DDPG_Agent, Random_Agent
-from networks import ActorNetwork, CriticNetwork
-from memory import Memory
-from explorationnoise import UniformNoise
-from environment import Environment
+from src.agents import DDPG_Agent, Random_Agent
+from src.networks import ActorNetwork, CriticNetwork
+from src.memory import Memory
+from src.explorationnoise import UniformNoise
+from src.environment import Environment
 
 
 ########################################################################
