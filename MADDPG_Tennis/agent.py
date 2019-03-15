@@ -42,6 +42,7 @@ class Agent:
 
         # Set the random seed
         random.seed(self.seed)
+        np.random.seed(self.seed)
 
         # Initialize step of the agent
         self.t_step = 0
