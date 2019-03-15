@@ -13,9 +13,10 @@ The structure is the following:
     - [Layers](src/layers.py): wrapper functions to create the neural networks more easily
     - [Exploration Noise](src/explorationnoise.py): Generating policy functions and action noise to let the agent explore the environment
     - [Utilities](src/utils.py): defines the lazy property function to ensure that the tensorflow objects are only added once to the graph
+* [requirements.txt](requirements.txt): [pipreqs](https://github.com/bndr/pipreqs) generated file to install all necessary python libraries
 
 ## Learning Algorithm
-The DDPG algorithm was published by DeepMind (Lillicrap et al.) "[Continuous Control with Deep Reinforcement Learning](https://arxiv.org/pdf/1509.02971.pdf)" and uses to seperate neural networks. The first neural network (actor network) predicts the action of the agent and the second neural network (critic network) looks at the action and the new state and predicts the quality (Q-value). In order to establish stability during training, an experience replay buffer was introduced, which adds each observation from the agent to the memory. This serves to ensure that the examples used for training do not correlate with each other. Since DDPG is an off-policy algorithm, an exploration noise is given on each action. This assures that the agent explores the learning environment sufficiently. No regularization techniques were used which showed empirically better results.
+The DDPG algorithm was published by DeepMind (Lillicrap et al.) "[Continuous Control with Deep Reinforcement Learning](https://arxiv.org/pdf/1509.02971.pdf)" and uses two seperate neural networks. The first neural network (actor network) predicts the action of the agent and the second neural network (critic network) looks at the action and the new state and predicts the quality (Q-value). In order to establish stability during training, an experience replay buffer was introduced, which adds each observation from the agent to the memory. This serves to ensure that the examples used for training do not correlate with each other. Since DDPG is an off-policy algorithm, an exploration noise is given on each action. This assures that the agent explores the learning environment sufficiently. No regularization techniques were used which showed empirically better results.
 ![](DDPG_Algorithm.png)
 
 ## Network Architecture
@@ -62,7 +63,7 @@ The network architecture for the critic is structured as follows:
 * Output Layer:
     - Input: Output of the Second Hidden Layer
     - Output: 1
-    - Activation Function: Linear (tangens hyperbolic)
+    - Activation Function: Linear
     - Weight Initialization: Uniform Distributed from -0.003 to 0.003 (can be also Variance Scaling FAN-IN)
 
 ### Target & Online Networks
