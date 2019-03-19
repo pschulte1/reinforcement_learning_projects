@@ -12,9 +12,9 @@ The structure is the following:
 
 1. Install [Anaconda](https://www.anaconda.com/)
 2. Navigate to this directory
-3. Set up the conda environment with 'conda env create -f tennis.yml'
-4. Activate the conda environment with 'conda activate tennis'
-5. INFORMATION ONLY FOR DEACTIVATING: 'conda deactivate'
+3. Set up the conda environment with `conda env create -f tennis.yml`
+4. Activate the conda environment with `conda activate tennis`
+5. INFORMATION ONLY FOR DEACTIVATING: `conda deactivate`
 
 ## Learning Algorithm
 The Multi-Agent DDPG algorithm was published by OpenAI and UC Berkeley (Lowe et al.) "[Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments](https://arxiv.org/pdf/1706.02275.pdf)". It lets the agents train in a collaborative and/or competitive fashing, as they try to maximize the joint Q-value. In the tennis environment the behavior can be observed by each agent trying individually to find the best policy to hit the ball, but both agents trying together to play as long as possible.  Both agents have a shared replay buffer, but only learn from their own experiences. Each agent learns his or her own policy, with the Critic making a statement about how they both perform together. Since the DDPG algorithm is used in the background, an exploration noise must also be used here. Batch normalization was used for regularization.
